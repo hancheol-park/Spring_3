@@ -40,7 +40,7 @@ public class memberDAOTest {
 			assertNotNull(memberDTO);
 		}
 	
-	//@Test
+	@Test
 	public void getListTest()throws Exception{
 		List<MemberDTO> ar = memberDAO.getList();
 		assertNotEquals(0, ar.size());
@@ -52,7 +52,7 @@ public class memberDAOTest {
 //		assertNotNull(memberDTO);
 //	}
 	
-	@Test
+	//@Test
 	public void memberWriteTest() throws Exception {
 		MemberDTO memberDTO = new MemberDTO();
 		memberDTO.setId("Test1212");

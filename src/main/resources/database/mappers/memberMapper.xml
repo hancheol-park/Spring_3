@@ -3,9 +3,9 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
-   <mapper namespace="com.abc.s3.member.MemberDTO">
+   <mapper namespace="com.abc.s3.member.MemberDAO">
 	
-	<update id="memberUpdate" parameterType="ccom.abc.s3.member.MemberDTO">
+	<update id="memberUpdate" parameterType="com.abc.s3.member.MemberDTO">
 		update member set pw=#{pw}, name=#{name} where phone=#{phone}, email=#{email} where id=#{id}
 	</update>
 

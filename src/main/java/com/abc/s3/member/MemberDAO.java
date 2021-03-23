@@ -41,6 +41,7 @@ public class MemberDAO {
 }	
 	
 	public List<MemberDTO> getList()throws Exception{
+		System.out.println("check");
 		return sqlSession.selectList(NAMESPACE+"getList");
 	}
 
