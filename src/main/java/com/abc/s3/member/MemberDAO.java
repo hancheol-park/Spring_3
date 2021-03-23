@@ -16,11 +16,11 @@ public class MemberDAO {
 	private final String NAMESPACE="com.abc.s3.member.MemberDAO";
 	
 	public int memberUpdate(MemberDTO memberDTO)throws Exception{
-		
+		return sqlSession.update(NAMESPACE+"memberUpdate", memberDTO);
 	}
 	
 	public int memberDelete(MemberDTO memberDTO)throws Exception{
-		
+		return sqlSession.delete(NAMESPACE+"memberDelete",memberDTO);
 	}
 	
 	//memberJoin 데이터를 받아서 DB에 insert 하는 메서드
@@ -33,7 +33,7 @@ public class MemberDAO {
 	
 	
 	//login - id pw를 받아서 조회
-	public MemberDTO memberWrite(MemberDTO memberDTO)throws Exception{
+	public MemberDTO memberSelect(MemberDTO memberDTO)throws Exception{
 		memberDTO = sqlSession.selectOne(NAMESPACE+"memberSelect", memberDTO);
 		
 		return memberDTO;
