@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class MemberDAO {
+	
 	@Autowired
 	private SqlSession sqlSession;
 	private final String NAMESPACE="com.abc.s3.member.MemberDAO";
@@ -23,7 +25,7 @@ public class MemberDAO {
 		return sqlSession.delete(NAMESPACE+"memberDelete",memberDTO);
 	}
 	
-	//memberJoin 데이터를 받아서 DB에 insert 하는 메서드
+
 	public int memberWrite(MemberDTO memberDTO)throws Exception{
 		int result = sqlSession.insert(NAMESPACE+"memberWrite", memberDTO);
 		
@@ -31,12 +33,15 @@ public class MemberDAO {
 		
 	}
 	
-	
-	//login - id pw를 받아서 조회
 	public MemberDTO memberSelect(MemberDTO memberDTO)throws Exception{
 		memberDTO = sqlSession.selectOne(NAMESPACE+"memberSelect", memberDTO);
-		
-		return memberDTO;
+	
+	return memberDTO;
+
+}	
+	
+	public List<MemberDTO> getList()throws Exception{
+		return sqlSession.selectList(NAMESPACE+"getList");
 	}
 
 }

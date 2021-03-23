@@ -2,6 +2,8 @@ package com.abc.s3.member;
 
 import static org.junit.Assert.*;
 
+import java.util.List;
+
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -32,17 +34,23 @@ public class memberDAOTest {
 		assertEquals(1, result);
 	}
 	
-//	//@Test
-//	public void getListTest()throws Exception{
-//		List<BankBookDTO> ar = bankBookDAO.getList();
-//		assertNotEquals(0, ar.size());
-//	}
+	//@Test
+		public void memberSelectTest()throws Exception{
+			MemberDTO memberDTO = memberDAO.memberSelect(null);
+			assertNotNull(memberDTO);
+		}
 	
 	//@Test
-	public void getSelectTest()throws Exception{
-		MemberDTO memberDTO = memberDAO.memberSelect(null);
-		assertNotNull(memberDTO);
+	public void getListTest()throws Exception{
+		List<MemberDTO> ar = memberDAO.getList();
+		assertNotEquals(0, ar.size());
 	}
+	
+	//@Test
+//	public void getSelectTest()throws Exception{
+//		MemberDTO memberDTO = memberDAO.memberSelect(null);
+//		assertNotNull(memberDTO);
+//	}
 	
 	@Test
 	public void memberWriteTest() throws Exception {
