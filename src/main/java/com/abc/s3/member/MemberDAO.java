@@ -15,7 +15,7 @@ public class MemberDAO {
 	
 	@Autowired
 	private SqlSession sqlSession;
-	private final String NAMESPACE="com.abc.s3.member.MemberDAO";
+	private final String NAMESPACE="com.abc.s3.member.MemberDAO.";
 	
 	public int memberUpdate(MemberDTO memberDTO)throws Exception{
 		return sqlSession.update(NAMESPACE+"memberUpdate", memberDTO);
@@ -41,7 +41,6 @@ public class MemberDAO {
 }	
 	
 	public List<MemberDTO> getList()throws Exception{
-		System.out.println("check");
 		return sqlSession.selectList(NAMESPACE+"getList");
 	}
 
