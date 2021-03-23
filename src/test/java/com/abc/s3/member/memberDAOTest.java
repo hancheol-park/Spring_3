@@ -7,7 +7,9 @@ import java.util.List;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class memberDAOTest {
+import com.abc.s3.MyAbstractTest;
+
+public class memberDAOTest extends MyAbstractTest{
 
 	@Autowired
 	private MemberDAO memberDAO;
@@ -17,7 +19,7 @@ public class memberDAOTest {
 		MemberDTO memberDTO = new MemberDTO();
 		memberDTO.setId("id1");
 		
-		memberDTO = memberDAO.memberSelect(memberDTO);
+		memberDTO = memberDAO.memberLogin(memberDTO);
 		
 		memberDTO.setName("New Poduct");
 		
@@ -35,32 +37,23 @@ public class memberDAOTest {
 	}
 	
 	//@Test
-		public void memberSelectTest()throws Exception{
-			MemberDTO memberDTO = memberDAO.memberSelect(null);
-			assertNotNull(memberDTO);
-		}
-	
-	//@Test
-	public void getListTest()throws Exception{
-		List<MemberDTO> ar = memberDAO.getList();
-		assertNotEquals(0, ar.size());
+	public void memberLoginTest()throws Exception{
+		MemberDTO memberDTO = new MemberDTO();
+		memberDTO.setId("id1");
+		memberDTO.setPw("pw1");
+		memberDTO = memberDAO.memberLogin(memberDTO);
+		assertNotNull(memberDTO);
 	}
 	
-	//@Test
-//	public void getSelectTest()throws Exception{
-//		MemberDTO memberDTO = memberDAO.memberSelect(null);
-//		assertNotNull(memberDTO);
-//	}
-	
 	@Test
-	public void memberWriteTest() throws Exception {
+	public void memberJoinTest() throws Exception {
 		MemberDTO memberDTO = new MemberDTO();
 		memberDTO.setId("Test1212");
 		memberDTO.setPw("123");
 		memberDTO.setName("test1212");
 		memberDTO.setPhone("01010101010");
 		memberDTO.setEmail("sss@nsnas.com");
-		int result = memberDAO.memberWrite(memberDTO);
+		int result = memberDAO.memberJoin(memberDTO);
 		assertEquals(1, result);
 	}
 

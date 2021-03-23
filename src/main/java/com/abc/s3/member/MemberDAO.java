@@ -26,22 +26,16 @@ public class MemberDAO {
 	}
 	
 
-	public int memberWrite(MemberDTO memberDTO)throws Exception{
-		int result = sqlSession.insert(NAMESPACE+"memberWrite", memberDTO);
-		
-		return result;
-		
+	public int memberJoin(MemberDTO memberDTO)throws Exception{
+		return sqlSession.insert(NAMESPACE+"memberJoin", memberDTO);
+	
 	}
 	
-	public MemberDTO memberSelect(MemberDTO memberDTO)throws Exception{
-		memberDTO = sqlSession.selectOne(NAMESPACE+"memberSelect", memberDTO);
+	public MemberDTO memberLogin(MemberDTO memberDTO)throws Exception{
+		memberDTO = sqlSession.selectOne(NAMESPACE+"memberLogin", memberDTO);
 	
-	return memberDTO;
-
-}	
-	
-	public List<MemberDTO> getList()throws Exception{
-		return sqlSession.selectList(NAMESPACE+"getList");
+		return memberDTO;
 	}
+	
 
 }
