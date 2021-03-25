@@ -48,7 +48,7 @@ public class memberDAOTest extends MyAbstractTest{
 	@Test
 	public void memberJoinTest() throws Exception {
 		MemberDTO memberDTO = new MemberDTO();
-		memberDTO.setId("Test1212");
+		memberDTO.setId("Test12");
 		memberDTO.setPw("123");
 		memberDTO.setName("test1212");
 		memberDTO.setPhone("01010101010");
