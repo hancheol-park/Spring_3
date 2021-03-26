@@ -6,8 +6,6 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.abc.s3.bankbook.BankBookDTO;
-
 @Repository
 public class AccountDAO {
 	@Autowired

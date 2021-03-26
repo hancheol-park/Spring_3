@@ -18,12 +18,21 @@ public class AccountContraller {
 	@Autowired
 	private AccountService accountService;
 	
+	@RequestMapping("accountInsert")
+	public String setInsert(AccountDTO accountDTO, HttpSession session)throws Exception{
+		MemberDTO memberDTO = (MemberDTO)session.getAttribute("member");
+		accountDTO.setId(memberDTO.getId());
+		int result = accountService.setInsert(accountDTO);
+		return "redirect:./accountList";
+		
+	}
+	
 	@RequestMapping("accountList")
 	public void getList(HttpSession session, Model model)throws Exception{
 		MemberDTO memberDTO = (MemberDTO)session.getAttribute("member");
 		AccountDTO accountDTO = new AccountDTO();
 		accountDTO.setId(memberDTO.getId());
 		List<AccountDTO> ar = accountService.getList(accountDTO);
-		model.addAttribute("list",ar);
+		model.addAttribute("list", ar);
 	}
 }

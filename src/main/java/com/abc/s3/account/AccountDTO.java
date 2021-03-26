@@ -7,6 +7,8 @@ public class AccountDTO {
 	private long accountBalance;
 	private Date accountDate;
 	private String id;
+	private long bookNumber;
+	
 	public String getAccountNumber() {
 		return accountNumber;
 	}
@@ -37,5 +39,5 @@ public class AccountDTO {
 	public void setBookNumber(long bookNumber) {
 		this.bookNumber = bookNumber;
 	}
-	private long bookNumber;
+	
 }

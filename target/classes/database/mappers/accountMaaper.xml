@@ -5,7 +5,7 @@
     <mapper namespace="com.abc.s3.account.AccountDAO">
     
     	<select id="getList" parameterType="AccountDTO">
-		select * from account where id=#{id}
+			select * from account where id=#{id}
 		</select>
 		
 		<insert id="setInsert" parameterType="AccountDTO">
