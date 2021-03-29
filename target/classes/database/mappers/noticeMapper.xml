@@ -6,7 +6,7 @@
 <mapper namespace="com.abc.s3.notice.NoticeDAO">
 	
 	<update id="setHitUpdate" parameterType="com.abc.s3.notice.NoticeDTO">
-		update notice set title=#{title}, writer=#{writer}, contents=#{contents}, hit=#{hit}, regdate=#{regdate} where num=#{num}
+		update notice set title=#{title}, writer=#{writer}, contents=#{contents}, hit=#{hit}, sysdate where num=#{num}
 	</update>
 	
 	<update id="setUpdate" parameterType="com.abc.s3.notice.NoticeDTO">
@@ -14,7 +14,7 @@
 	</update>
 
 	<insert id="setInsert" parameterType="com.abc.s3.notice.NoticeDTO">
-		insert into notice values(notice_seq.nextval, #{title},#{writer},#{contents},#{hit},#{regdate})
+		insert into notice values(notice_seq.nextval, #{title},#{writer},#{contents},0,sysdate)
 	</insert>
 	
 	<select id="getSelect" parameterType="com.abc.s3.notice.NoticeDTO" resultType="com.abc.s3.notice.NoticeDTO">

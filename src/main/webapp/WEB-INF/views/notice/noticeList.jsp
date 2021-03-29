@@ -19,34 +19,37 @@
 	<h1>noticeList</h1>
 	
 	<div class="container">	
-	<h2>BankBook List</h2>
 	
-	<table class="table">
-		<thead class="thead-dark">
-			<tr>
-				<th>No</th>
-				<th>제목</th>
-				<th>작성자</th>
-				<th>내용</th>
-				<th>조회수</th>
-				<th>작성일</th>
-			</tr>
-		</thead>
+		<table class="table">
+			<thead class="thead-dark">
+				<tr>
+					<th>No</th>
+					<th>제목</th>
+					<th>작성자</th>
+					<th>내용</th>
+					<th>조회수</th>
+					<th>작성일</th>
+				</tr>
+			</thead>
+			
+			<tbody>
+				<c:forEach items="${list}" var="notice">
+					<tr>
+						<td><a href="./noticeSelect?num=${notice.num}">${notice.num}</a></td>
+						<td>${notice.title}</td>
+						<td>${notice.writer}</td>
+						<td>${notice.contents}</td>
+						<td>${notice.hit}</td>
+						<td>${notice.regdate}</td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
 		
-		<tbody>
-		<c:forEach items="${list}" var="notice">
-			<tr>
-				<td>${notice.num}</td>
-				<td>${notice.title}</td>
-				<td>${notice.writer}</td>
-				<td>${notice.contents}</td>
-				<td>${notice.hit}</td>
-				<td>${notice.regdate}</td>
-			</tr>
-		</c:forEach>
-		</tbody>
-	
-	</table>
-</div>	
+		 <c:if test="${not empty member and member.id eq 'admin'}">
+			<a href="./noticeInsert">Insert</a>
+		</c:if> 
+	</div>	
+
 </body>
 </html>
