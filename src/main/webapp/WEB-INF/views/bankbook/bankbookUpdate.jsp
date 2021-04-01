@@ -7,13 +7,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>bankbookupdate</h1>
+	<h1>Bank Update Form</h1>
+	
 	<form action="./bankbookUpdate" method="post">
-		Number <input type="hidden" name="bookNumber" value="${dto.bookNumber}"><br>
+		<input type="hidden" name="bookNumber" value="${dto.bookNumber}">
+		<!-- Number <input type="text" readonly="readonly" name="bookNumber" value="${dto.bookNumber}"><br> -->
 		Name <input type="text" name="bookName" value="${dto.bookName}"><br>
 		Rate <input type="text" name="bookRate" value="${dto.bookRate}"><br>
 		Sale <input type="text" name="bookSale" value="${dto.bookSale}"><br>
 		<button>Update</button>
 	</form>
+
 </body>
 </html>

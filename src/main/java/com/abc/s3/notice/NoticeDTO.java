@@ -1,19 +1,20 @@
 package com.abc.s3.notice;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class NoticeDTO {
-	private int num;
+	
+	private long num;
 	private String title;
 	private String writer;
 	private String contents;
-	private int hit;
-	private Date regdate;
+	private Date regDate;
+	private long hit;
 	
-	public int getNum() {
+	public long getNum() {
 		return num;
 	}
-	public void setNum(int num) {
+	public void setNum(long num) {
 		this.num = num;
 	}
 	public String getTitle() {
@@ -34,16 +35,19 @@ public class NoticeDTO {
 	public void setContents(String contents) {
 		this.contents = contents;
 	}
-	public int getHit() {
+	public Date getRegDate() {
+		return regDate;
+	}
+	public void setRegDate(Date regDate) {
+		this.regDate = regDate;
+	}
+	public long getHit() {
 		return hit;
 	}
-	public void setHit(int hit) {
+	public void setHit(long hit) {
 		this.hit = hit;
 	}
-	public Date getRegdate() {
-		return regdate;
-	}
-	public void setRegdate(Date regdate) {
-		this.regdate = regdate;
-	}
+	
+	
+
 }

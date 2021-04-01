@@ -14,7 +14,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class BankBookDAO {
 	
-
 	@Autowired
 	private SqlSession sqlSession;
 	private final String NAMESPACE="com.abc.s3.bankbook.BankBookDAO.";
@@ -37,11 +36,16 @@ public class BankBookDAO {
 
 	public BankBookDTO getSelect(BankBookDTO bankBookDTO)throws Exception{
 			//long num=1L;
-			bankBookDTO = sqlSession.selectOne(NAMESPACE+"getSelect", bankBookDTO);
-		
+		System.out.println("DAO SELECT~~~");
+		bankBookDTO = sqlSession.selectOne(NAMESPACE+"getSelect", bankBookDTO);
+		System.out.println(bankBookDTO.getBookNumber());
 		return bankBookDTO;
+
 	}	
 
+
+	//getList
+	//bankbook table의 모든 데이트 조회 후 리턴
 	public List<BankBookDTO> getList()throws Exception{
 		return sqlSession.selectList(NAMESPACE+"getList");
 	}

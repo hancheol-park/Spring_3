@@ -1,13 +1,15 @@
 package com.abc.s3.account;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class AccountDTO {
+	
 	private String accountNumber;
 	private long accountBalance;
 	private Date accountDate;
 	private String id;
 	private long bookNumber;
+	
 	
 	public String getAccountNumber() {
 		return accountNumber;
@@ -40,4 +42,6 @@ public class AccountDTO {
 		this.bookNumber = bookNumber;
 	}
 	
+	
+
 }

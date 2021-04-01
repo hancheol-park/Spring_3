@@ -13,7 +13,7 @@ import com.abc.s3.member.MemberDTO;
 
 @Controller
 @RequestMapping("/account/**")
-public class AccountContraller {
+public class AccountController {
 	
 	@Autowired
 	private AccountService accountService;
@@ -35,4 +35,5 @@ public class AccountContraller {
 		List<AccountDTO> ar = accountService.getList(accountDTO);
 		model.addAttribute("list", ar);
 	}
+
 }

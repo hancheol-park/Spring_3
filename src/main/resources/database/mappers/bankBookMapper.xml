@@ -24,5 +24,6 @@
 	<delete id="setDelete" parameterType="com.abc.s3.bankbook.BankBookDTO">
 		delete bankbook where booknumber = #{bookNumber}
 	</delete>
+	
 
 </mapper>  

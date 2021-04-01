@@ -24,6 +24,7 @@ public class BankBookService {
 	}
 	
 	public BankBookDTO getSelect(BankBookDTO bankBookDTO) throws Exception{
+		System.out.println("select service");
 		return bankBookDAO.getSelect(bankBookDTO);
 	}
 

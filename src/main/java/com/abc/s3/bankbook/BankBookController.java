@@ -16,6 +16,7 @@ public class BankBookController {
 	@Autowired
 	private BankBookService bankBookService;
 	
+	
 	@RequestMapping("bankbookUpdate")
 	public void setUpdate(BankBookDTO bankBookDTO, Model model)throws Exception{
 		
@@ -32,7 +33,10 @@ public class BankBookController {
 	
 	@RequestMapping("bankbookDelete")
 	public String setDelete(BankBookDTO bankBookDTO)throws Exception{
+		System.out.println("Delete");
+		System.out.println(bankBookDTO.getBookNumber());
 		int result = bankBookService.setDelete(bankBookDTO);
+		System.out.println(result);
 		
 		return "redirect:./bankbookList";
 	}
@@ -45,12 +49,20 @@ public class BankBookController {
 	
 	@RequestMapping(value = "bankbookSelect")
 	public ModelAndView getSelect(BankBookDTO bankBookDTO)throws Exception{
+		System.out.println("SELECT~~~");
+		System.out.println(bankBookDTO.getBookNumber());
 		ModelAndView mv = new ModelAndView();
 		bankBookDTO = bankBookService.getSelect(bankBookDTO);
-
+		System.out.println("servie 끝");
 		mv.addObject("dto", bankBookDTO);
 		mv.setViewName("bankbook/bankbookSelect");
 		return mv;
 	}
 
 }
+
+
+
+
+
+
