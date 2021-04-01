@@ -22,7 +22,9 @@
 			<label for="contents">Name</label> 
 			<input type="text" class="form-control"	id="contents" name="contents">
 		</div>
-		<button>Update</button>	
+		<button onclick="insertCheck()">Update</button>	
 	</form>
+	
+	<script type="text/javascript" src="../resources/js/insertCheck.js"></script>
 </body>
 </html>
