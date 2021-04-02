@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -22,9 +23,20 @@ public class NoticeController {
 	public void setInsert()throws Exception{}
 	
 	@RequestMapping(value = "noticeInsert", method = RequestMethod.POST)
-	public String setInsert(NoticeDTO noticeDTO)throws Exception{
+	public String setInsert(NoticeDTO noticeDTO,Model model)throws Exception{
 		int result = noticeService.setInsert(noticeDTO);
-		return "redirect:./noticeList";
+		String msg ="실패";
+		String path ="./noticeInsert";
+		
+		if(result>0) {
+			msg = "성공";
+			path="../";
+		}
+		
+		model.addAttribute("msg",msg);
+		model.addAttribute("path", path);
+		
+		return "common/commonResult";
 	}
 	
 	@RequestMapping("noticeList")

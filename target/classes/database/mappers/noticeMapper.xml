@@ -46,7 +46,7 @@
 	</select>
 	
 	<insert id="setInsert" parameterType="NoticeDTO">
-		insert into notice values(notice_seq.nextval,#{title}, #{writer}, #{contents}, sysdate, 0)
+		insert into notice values(notice_seq.nextval,#{title}, #{writer}, #{contents},0, sysdate)
 	</insert>
 
 </mapper>  
