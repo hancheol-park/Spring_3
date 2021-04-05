@@ -1,23 +1,51 @@
-package com.abc.s3.notice;
+package com.abc.s3.board.notice;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.abc.s3.board.BoardDTO;
+import com.abc.s3.board.BoardService;
 import com.abc.s3.util.Pager;
 
 @Service
-public class NoticeService {
+public class NoticeService implements BoardService{
 	
 	@Autowired
 	private NoticeDAO noticeDAO;
 	
-	public int setInsert(NoticeDTO noticeDTO)throws Exception{
-		return noticeDAO.setInsert(noticeDTO);
+	
+	
+	@Override
+	public BoardDTO getSelect(BoardDTO boardDTO) throws Exception {
+		return noticeDAO.getSelect(boardDTO);
 	}
 	
-	public List<NoticeDTO> getList(Pager pager)throws Exception{
+
+	
+	@Override
+	public int setInsert(BoardDTO boardDTO) throws Exception {
+		return noticeDAO.setInsert(boardDTO);
+	}
+
+
+
+	@Override
+	public int setUpdate(BoardDTO boardDTO) throws Exception {
+		return noticeDAO.setUpdate(boardDTO);
+	}
+
+
+
+	@Override
+	public int setDelete(BoardDTO boardDTO) throws Exception {
+		return noticeDAO.setDelete(boardDTO);
+	}
+
+
+
+	public List<BoardDTO> getList(Pager pager)throws Exception{
 		int perPage=10; // 한페이지당 보여줄 글의 갯수
 		int perBlock=5;	// 한 블럭당 보여줄 숫자의 갯수
 		

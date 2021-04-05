@@ -8,6 +8,9 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.abc.s3.MyAbstractTest;
+import com.abc.s3.board.BoardDTO;
+import com.abc.s3.board.notice.NoticeDAO;
+import com.abc.s3.board.notice.NoticeDTO;
 
 public class NoticeDAOTest extends MyAbstractTest {
 
@@ -31,7 +34,7 @@ public class NoticeDAOTest extends MyAbstractTest {
 	
 	@Test
 	public void getListTest()throws Exception{
-		List<NoticeDTO> ar = noticeDAO.getList(null);
+		List<BoardDTO> ar = noticeDAO.getList(null);
 		assertNotEquals(0, ar.size());;
 		
 	}

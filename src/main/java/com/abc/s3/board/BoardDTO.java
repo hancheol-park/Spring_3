@@ -1,15 +1,16 @@
-package com.abc.s3.notice;
+package com.abc.s3.board;
 
 import java.sql.Date;
 
-public class NoticeDTO {
-	
+public class BoardDTO {
+
 	private long num;
 	private String title;
 	private String writer;
 	private String contents;
 	private Date regDate;
 	private long hit;
+	
 	
 	public long getNum() {
 		return num;
@@ -49,5 +50,4 @@ public class NoticeDTO {
 	}
 	
 	
-
 }
