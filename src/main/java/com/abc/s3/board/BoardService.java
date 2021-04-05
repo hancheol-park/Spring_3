@@ -3,6 +3,7 @@ package com.abc.s3.board;
 import java.util.List;
 
 import com.abc.s3.util.Pager;
+import com.abc.s3.util.Pager_backUp;
 
 public interface BoardService {
 	

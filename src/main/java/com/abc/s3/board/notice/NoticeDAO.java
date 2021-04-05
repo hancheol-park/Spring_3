@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.abc.s3.board.BoardDAO;
 import com.abc.s3.board.BoardDTO;
 import com.abc.s3.util.Pager;
+import com.abc.s3.util.Pager_backUp;
 
 @Repository
 public class NoticeDAO implements BoardDAO{
@@ -27,7 +28,7 @@ public class NoticeDAO implements BoardDAO{
 	@Override
 	public long getTotalCount(Pager pager) throws Exception {
 		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.selectOne(NAMESPACE+"getTotalCount", pager);
 	}
 
 	@Override

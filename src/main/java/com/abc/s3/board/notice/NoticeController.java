@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.abc.s3.bankbook.BankBookDTO;
 import com.abc.s3.board.BoardDTO;
 import com.abc.s3.util.Pager;
+import com.abc.s3.util.Pager_backUp;
 
 @Controller
 @RequestMapping("/notice/**")
@@ -73,28 +74,28 @@ public class NoticeController {
 		return mv;
 	}
 	
-//	@RequestMapping("noticeInsert")
-//	public ModelAndView setInsert()throws Exception{
-//		ModelAndView mv = new ModelAndView();
-//		mv.setViewName("board/boardInsert");
-//		mv.addObject("board","notice");
-//		return mv;
-//	}
-//	
-//	@RequestMapping(value = "noticeInsert", method = RequestMethod.POST)
-//	public String setInsert(BoardDTO boardDTO, Model model)throws Exception{
-//		int result = noticeService.setInsert(boardDTO);
-//		
-//		String message="등록 실패";
-//		
-//		if(result>0) {
-//			message="등록 성공";
-//		}
-//		model.addAttribute("msg", message);
-//		model.addAttribute("path", "./noticeList");
-//		
-//		return "common/commonResult";
-//	}
+	@RequestMapping("noticeInsert")
+	public ModelAndView setInsert()throws Exception{
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("board/boardInsert");
+		mv.addObject("board","notice");
+		return mv;
+	}
+	
+	@RequestMapping(value = "noticeInsert", method = RequestMethod.POST)
+	public String setInsert(BoardDTO boardDTO, Model model)throws Exception{
+		int result = noticeService.setInsert(boardDTO);
+		
+		String message="등록 실패";
+		
+		if(result>0) {
+			message="등록 성공";
+		}
+		model.addAttribute("msg", message);
+		model.addAttribute("path", "./noticeList");
+		
+		return "common/commonResult";
+	}
 	
 	@RequestMapping("noticeList")
 	public ModelAndView getList(Pager pager)throws Exception{

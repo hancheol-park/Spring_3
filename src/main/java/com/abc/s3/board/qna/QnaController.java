@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.abc.s3.board.BoardDTO;
 import com.abc.s3.util.Pager;
+import com.abc.s3.util.Pager_backUp;
 
 @Controller
 @RequestMapping("/qna/**")
@@ -53,10 +54,12 @@ public class QnaController {
 		mv.addObject("list", ar);
 		mv.addObject("board", "qna");
 		mv.setViewName("board/boardList");
+		mv.addObject("pager", pager);
 		
 		return mv;
 		
 	}
+	
 	
 	@GetMapping("qnaInsert")
 	public ModelAndView setInsert()throws Exception{

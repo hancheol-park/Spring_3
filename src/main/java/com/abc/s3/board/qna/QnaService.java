@@ -4,10 +4,12 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.abc.s3.board.BoardDTO;
 import com.abc.s3.board.BoardService;
 import com.abc.s3.util.Pager;
+import com.abc.s3.util.Pager_backUp;
 
 @Service
 public class QnaService implements BoardService{
@@ -36,19 +38,27 @@ public class QnaService implements BoardService{
 	
 	@Override
 	public List<BoardDTO> getList(Pager pager) throws Exception {
+		// startRow,lastRow
+		pager.makeRow();
+		
+		// 페이징 계산
+		long totalCount = qnaDAO.getTotalCount(pager);
+		pager.makeNum(totalCount);
+		
+		
 		return qnaDAO.getList(pager);
 	}
 
 	@Override
 	public BoardDTO getSelect(BoardDTO boardDTO) throws Exception {
 		// TODO Auto-generated method stub
-		int result = qnaDAO.setHitUpdate(boardDTO);
-		return qnaDAO.getSelect(boardDTO);
+		return null;
 	}
 
 	@Override
 	public int setInsert(BoardDTO boardDTO) throws Exception {
-		return qnaDAO.setInsert(boardDTO);
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 	@Override
