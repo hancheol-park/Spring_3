@@ -40,21 +40,25 @@ public class NoticeController {
 	}
 	
 	@RequestMapping(value = "noticeUpdate", method = RequestMethod.POST)
-	public String setUpdate(BoardDTO boardDTO,Model model)throws Exception{
+	public ModelAndView setUpdate(BoardDTO boardDTO, ModelAndView mv)throws Exception{
 		int result = noticeService.setUpdate(boardDTO);
-		String message="등록 실패";
 		
 		if(result>0) {
-			message="등록 성공";
+			//성공하면 리스트로 이동
+			mv.setViewName("redirect:./noticeList");
+		}else {
+			//실패하면 수정실패 , 리스트로 이동
+			mv.addObject("msg", "수정 실패");
+			mv.addObject("path", "./noticeList");
+			mv.setViewName("common/commonResult");
 		}
-		model.addAttribute("msg", message);
-		model.addAttribute("path", "./noticeList");
 		
-		return "common/commonResult";
+		return mv;
 	}
 	
 	@GetMapping("noticeUpdate")
-	public ModelAndView setUpdate(BoardDTO boardDTO,ModelAndView mv)throws Exception{
+	public ModelAndView setUpdate(BoardDTO boardDTO)throws Exception{
+		ModelAndView mv = new ModelAndView();
 		boardDTO = noticeService.getSelect(boardDTO);
 		mv.addObject("dto", boardDTO);
 		mv.addObject("board", "notice");

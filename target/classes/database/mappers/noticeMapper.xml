@@ -54,7 +54,7 @@
 	</insert>
 	
 	<update id="setUpdate" parameterType="BoardDTO">
-		update notice set title=#{title}, writer=#{writer}, contents=#{contents} where num=#{num}
+		update notice set title=#{title}, contents=#{contents} where num=#{num}
 	</update>
 	 
 	<delete id="setDelete" parameterType="BoardDTO">

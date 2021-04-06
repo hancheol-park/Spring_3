@@ -16,7 +16,7 @@ public class QnaService implements BoardService{
 	
 	@Autowired
 	private QnaDAO qnaDAO;
-
+	
 	
 	public int setReply(QnaDTO qnaDTO)throws Exception{
 		//부모글의 ref, step, depth 조회
